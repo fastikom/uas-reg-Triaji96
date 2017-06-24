@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Form Input</h1>
+  <form *ngIf="showForm">
+  	<div class="form-group">
+  	  <label for="author">Penulis</label>
+  	  <input type="text" class="form-control" id="author" [(ngModel)]="formPlayer.author">
+
+  	</div>
+  	<div class="form-group">
+  	  <label for="title">Deskripsi</label>
+  	  <input type="text" class="form-control" id="description" [(ngModel)]="formPlayer.description">
+  	</div>
+  	<button type="submit" class="btn btn-succes" (click)="savePlayer(formPlayer)">Simpan</button>
+  </form>
+
+  
+  <br><br>
+  <blockquote *ngFor="let book of players" class="blockquote">
+    <p>{{book.description}}</p>
+    <footer class="blockquote-footer">{{book.author}}</footer><br>
+    <button class="btn btn-info" (click)="showPlayerForm(book)"><i class="fa fa-edit">Detail</i></button>
+    <button class="btn btn-danger" (click)="removePlayer(book)"><i class="fa fa-minus">Hapus</i></button>
+  </blockquote>
+
+  
+</div>
